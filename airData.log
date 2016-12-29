@@ -1,0 +1,4 @@
+十二月 26, 2016 8:48:13 上午 air.app.Main getAirData
+資訊: Great. getting data successfully from http://opendata2.epa.gov.tw/AQI.json
+十二月 26, 2016 8:48:13 上午 air.app.Main main
+資訊: play the mp3 file. mp3/airUnhealthyForSensitiveGroups.mp3

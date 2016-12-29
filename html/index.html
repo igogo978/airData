@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="lib/vue.js"></script>
+    <script src="lib/axios.js"></script>
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="col-md-1 col-sd-1 "id="app">
+        <div class="panel panel-default" style="border: gray solid 1px; border-radius: 10px;">
+            <table class="table table-bordered">
+                <tr style=" border-bottom:2px solid gray; font-weight: bold;  text-decoration: underline; font-size: 1.5em;">
+                    <td>
+                        {{siteObj.SiteName}}
+                    </td>
+                </tr>
+                <!--  <tr style="background-color: yellow;"> -->
+                <tr v-bind:style="aqiColor">
+                    <td>
+                        AQI {{siteObj.AQI}}
+                        <br/> {{siteObj.Status}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <footer>
+        <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                siteObj: {},
+                aqiColor: {
+                    backgroundColor: 'white'
+                }
+            },
+            created: function() {
+                var self = this;
+                axios.get('airData.json')
+                    .then(function(response) {
+                        self.siteObj = response.data;
+                        // console.log(self.siteObj.SiteName);
+                        // self.SiteName = self.siteObj.SiteName;
+
+                        console.log(self.siteObj.SiteName);
+                        console.log(self.siteObj.AQI);
+                        
+                        self.aqiColor.backgroundColor = self.aqiLevelColor(self.siteObj.AQI);
+                        //綠#7FFF00  黃	#FFFF00  橘#FFA500  紅#FF0000  紫#BA55D3  暗紅 #8B0000
+
+                    })
+                    .catch(function(error) {
+                        console.log(error);
+                    });
+
+            },
+            methods: {
+                aqiLevelColor: function(aqi) {
+                    // console.log(aqi);
+
+                    if (aqi > 0 && aqi <= 50) {
+                        return '#7FFF00';
+                    }
+
+                    if (aqi > 50  && aqi <= 100) {
+                        return '#FFFF00 ';
+                    }
+
+                    if (aqi > 100 && aqi <= 150) {
+                        return '#FFA500';
+                    }
+                    if (aqi > 150 && aqi <= 200) {
+                        return '#FF0000';
+                    }
+                    if (aqi > 200 && aqi <= 300) {
+                        return '#BA55D3';
+                    }
+                    if (aqi > 300 && aqi <= 500) {
+                        return '#8B0000';
+                    }
+                    return 'white';
+
+                }
+            }
+        })
+        </script>
+    </footer>
+</body>
+
+</html>
