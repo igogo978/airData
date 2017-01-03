@@ -1,4 +1,10 @@
-十二月 26, 2016 8:48:13 上午 air.app.Main getAirData
+一月 03, 2017 11:49:00 下午 air.app.Main main
+資訊: working directory: C:\Users\igogo\Documents\NetBeansProjects\airData
+一月 03, 2017 11:49:01 下午 air.app.Main main
+資訊: 觀測站台: 沙鹿
+一月 03, 2017 11:49:01 下午 air.app.Main getAirData
 資訊: Great. getting data successfully from http://opendata2.epa.gov.tw/AQI.json
-十二月 26, 2016 8:48:13 上午 air.app.Main main
-資訊: play the mp3 file. mp3/airUnhealthyForSensitiveGroups.mp3
+一月 03, 2017 11:49:01 下午 air.app.Main main
+資訊: writing data to C:\Users\igogo\Documents\NetBeansProjects\airData/html/
+一月 03, 2017 11:49:01 下午 air.app.Main main
+資訊: Now, it's going to play the mp3 file. C:\Users\igogo\Documents\NetBeansProjects\airData/mp3/airModerate.mp3
